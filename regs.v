@@ -26,7 +26,7 @@ module regs(
     reg[`RegDataLen] regs[0:`RegNum - 1];
 
     // read common regs
-    always @ (*) begin
+    always @(*) begin
         if (jtag_addr_i == `ZeroReg) begin
             jtag_data_o = `ZeroWord;
         end else begin
@@ -35,7 +35,7 @@ module regs(
     end
 
     // write common regs
-    always @ (posedge clk) begin
+    always @(posedge clk) begin
         if (rst == `RstDisable) begin
             if ((jtag_we_i == `WriteEnable) && (jtag_addr_i != `ZeroReg)) begin
                 regs[jtag_addr_i] <= jtag_data_i;
