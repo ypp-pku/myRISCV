@@ -10,7 +10,7 @@ module alu(
     output wire[`NumLen:0] ans_o
     );
 
-    always @ (*) begin
+    always @(*) begin
         case(op_i)
             `ADD: begin
                 ans_o = num1_i + num2_i;
